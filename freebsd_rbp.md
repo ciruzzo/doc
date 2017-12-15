@@ -2,6 +2,15 @@
 
 tested with FreeBSD 10.3
 
+### MacOSXでOSイメージをSDカードに焼く
+
+```
+sudo diskutil list
+sudo diskutil unmountDisk /dev/diskX
+sudo dd if=FreeBSD.img of=/dev/rdiskX bs=1m
+sudo diskutil eject /dev/diskX
+```
+
 ### /boot/loader.confに追加
 
 ```
