@@ -52,7 +52,7 @@ instance Num a => Num (R a) where
   (-)                   =  lift2 (-)
   negate                =  lift1 negate
   (*)                   =  lift2 (*)
-    abs                   =  lift1 abs
+  abs                   =  lift1 abs
   fromInteger           =  return . fromInteger
   signum                =  lift1 signum
 
