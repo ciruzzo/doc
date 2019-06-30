@@ -1,8 +1,7 @@
 -- working code for Resource monad in Section 9.3 of
   -- https://www.haskell.org/tutorial/monads.html
 
--- https://stackoverflow.com/questions/31652475/defining-a-new-monad-in-haskell-raises-no-instance-for-applicative
---
+
 import Control.Applicative -- Otherwise you can't do the Applicative instance.
 import Control.Monad (liftM, ap)
 
@@ -18,12 +17,14 @@ instance Monad R where
   return v              = R (\r -> (r, (Left v)))
 
 
+-- https://wiki.haskell.org/Functor-Applicative-Monad_Proposal
 instance Functor R where
   fmap = liftM
 
 instance Applicative R where
   pure  = return
   (<*>) = ap
+-- 
 
 step                    :: a -> R a
 step v                  =  c where
